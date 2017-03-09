@@ -22,6 +22,6 @@ install:
   - go get -t -v ./...
 
 script:
-  - if [[ "$task" == "" ]]; then set -e ; ./all.bash test && bash <(curl -fsS https://codecov.io/bash) ; fi
+  - if [[ "$task" == "" ]]; then set -e ; go test -v ./... && bash <(curl -fsS https://codecov.io/bash) ; fi
   - if [[ "$task" == "bench" ]]; then exec ./script/bench ; fi
   - if [[ "$task" == "clean" ]]; then exec ./script/clean ; fi
