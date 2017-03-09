@@ -1,0 +1,27 @@
+language: go
+sudo: false
+
+go:
+  - master
+  - 1.7
+  - 1.6
+  - 1.5
+  - 1.4
+
+matrix:
+  include:
+  - go: 1.7
+    env: task=bench
+  - go: master
+    env: task=bench
+  - go: master
+    env: task=clean
+
+install:
+  - go get -u github.com/alecthomas/gometalinter
+  - go get -t -v ./...
+
+script:
+  - if [[ "$task" == "" ]]; then set -e ; ./all.bash test && bash <(curl -fsS https://codecov.io/bash) ; fi
+  - if [[ "$task" == "bench" ]]; then exec ./script/bench ; fi
+  - if [[ "$task" == "clean" ]]; then exec ./script/clean ; fi
