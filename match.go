@@ -121,7 +121,7 @@ func (self *SpecList) Add(s Spec) {
 	self.Unlock()
 }
 
-func (self *SpecList) Has(s Spec) bool {
+func (self *SpecList) Has(s fmt.Stringer) bool {
 	self.Lock()
 	_, ok := self.index[s.String()]
 	self.Unlock()

@@ -22,7 +22,7 @@ func ipToNet(ip net.IP) net.IPNet {
 		IP:   ip,
 		Mask: make(net.IPMask, len(ip)),
 	}
-	for i, _ := range ip {
+	for i := range ip {
 		n.Mask[i] = 0xff
 	}
 	return n
@@ -90,7 +90,7 @@ func main() {
 		case <-donech:
 		case <-time.After(timeout):
 		}
-		cleanDuration := time.Now().Sub(begin)
+		cleanDuration := time.Since(begin)
 		log.Printf("remaining work finished in %s", cleanDuration)
 		os.Exit(exitCode)
 	}

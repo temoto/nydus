@@ -1,6 +1,7 @@
 {
     "Deadline": 60000000000,
     "Exclude": [
+        "receiver name should be a reflection of its identity",
         "should have comment or be unexported"
     ],
     "Tests": true,
