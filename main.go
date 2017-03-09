@@ -129,7 +129,7 @@ func main() {
 				log.Printf("caught SIGTERM")
 				terminate(conf.gracefulTimeout, 0)
 			}
-			log.Fatalf("unexpected signal: %d", sig)
+			log.Fatalf("unexpected signal: %v", sig)
 		}
 	}
 }
