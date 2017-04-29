@@ -10,8 +10,12 @@ Solution:
 * run nydus proxy on secure machine
 * configure application to run sensitive requests via nydus proxy
 
-# Install
+# Build / install
 `go get https://github.com/temoto/nydus`
+
+Requires:
+
+* Go 1.5+
 
 # Usage
 * By default, no connections allowed. You must specify allow and deny rules explicitly. Check order: allow, deny.
